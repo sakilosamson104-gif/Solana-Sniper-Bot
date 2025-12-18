@@ -1,3 +1,35 @@
-git add render.yaml
-git commit -m "Add render.yaml"
-git push
+# Exported from Render on 2025-12-18T13:08:59Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Solana snipe bot
+    services:
+    - type: web
+      name: Solana-Sniper-Bot-1
+      runtime: rust
+      repo: https://github.com/sakilosamson104-gif/Solana-Sniper-Bot
+      plan: free
+      envVars:
+      - key: Commission_address
+        sync: false
+      - key: Encryption_Key
+        sync: false
+      - key: Mongodb_Url
+        sync: false
+      - key: Solana_Rpc_Url
+        sync: false
+      - key: Webhook_url
+        sync: false
+      - key: Solana_Rpc
+        sync: false
+      - key: Redis_Url
+        sync: false
+      - key: Telegram_Bot_Token
+        sync: false
+      - key: Admin_user_Id
+        sync: false
+      region: virginia
+      buildCommand: cargo build --release
+      startCommand: cargo run --release
+      autoDeployTrigger: commit
